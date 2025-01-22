@@ -3,7 +3,7 @@ import os
 import google.generativeai as genai
 
 # Set up Google AI API key
-os.environ["AI_API_KEY"] = "AIzaSyA6axcDK2vv3GLQef2NFG64g_jW8I3m2Ag"
+os.environ["AI_API_KEY"] = ""
 genai.configure(api_key=os.environ["AI_API_KEY"])
 
 # Configure the generative model
