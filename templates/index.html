@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive and Attractive Layout</title>
+
+    <!-- Google Fonts integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Basic reset and layout styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background-color: #e7f7ff; /* Light blue background */
+            color: #333;
+        }
+
+        /* Navbar styles */
+        nav {
+            background-color: #4e8db4; /* Soft blue background */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            animation: changeText 5s infinite alternate;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #6bb0d2; /* Lighter blue on hover */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Animation for changing navbar text over time */
+@keyframes changeText {
+    0% {
+        color: #ff9800; /* Bright orange */
+        font-size: 18px;
+        font-weight: 400;
+    }
+    25% {
+        color: #ff5722; /* Deep orange */
+        font-size: 19px;
+        font-weight: 500;
+    }
+    50% {
+        color: #f44336; /* Red */
+        font-size: 20px;
+        font-weight: 600;
+    }
+    75% {
+        color: #9c27b0; /* Purple */
+        font-size: 21px;
+        font-weight: 400;
+    }
+    100% {
+        color: #ffeb3b; /* Yellow */
+        font-size: 22px;
+        font-weight: 300;
+    }
+}
+
+
+        /* Sidebar styles */
+        .sidebar {
+            background-color: #3a4c63; /* Slightly darker blue */
+            color: white;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: 30px;
+            transition: all 0.3s;
+            border-right: 4px solid #6bb0d2; /* Light blue border */
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #6bb0d2; /* Lighter blue on hover */
+            border-radius: 5px;
+            transform: scale(1.05);
+        }
+
+        .sidebar a.active {
+            background-color: #5b9ab8; /* Slightly lighter blue for active link */
+        }
+
+        /* Main content area */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+        }
+
+        iframe {
+            flex-grow: 1;
+            border: none;
+            width: 100%;
+            height: 80vh; /* Adjust iframe height */
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section styles */
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .section:hover {
+            background-color: #f7f7f7;
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Hover effects for different sections */
+        .mood, .time, .family, .thaat, .name, .general {
+            background-color: #6bb0d2; /* Light blue background */
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-family: 'Quicksand', sans-serif;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .mood:hover, .time:hover, .family:hover, .thaat:hover, .name:hover, .general:hover {
+            background-color: #4e8db4; /* Slightly darker blue on hover */
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .content {
+                margin-left: 200px;
+            }
+
+            iframe {
+                height: 60vh;
+            }
+
+            nav {
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        identify your ragha
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <a href="#mood" id="sidebarMood" onclick="changePage('mood')">Mood</a>
+        <a href="#time" id="sidebarTime" onclick="changePage('time')">Time</a>
+        <a href="#thaat" id="sidebarThaat" onclick="changePage('thaat')">Thaat</a>
+        <a href="#family" id="sidebarFamily" onclick="changePage('family')">Family</a>
+        <a href="#name" id="sidebarName" onclick="changePage('name')">Name</a>
+        <a href="#general" id="sidebarGeneral" onclick="changePage('general')">General</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content" id="content">
+        <!-- Default page content -->
+        <div id="defaultContent" class="section">
+            <h2>Welcome! Please choose a category</h2>
+            <p>Click any option from the sidebar or navbar to explore.</p>
+        </div>
+        <iframe src="" id="iframeContent"></iframe>
+    </div>
+
+    <script>
+        // Function to change the page content dynamically based on the selected link
+        function changePage(page) {
+            // Change the active class in the sidebar
+            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+            document.getElementById('sidebar' + capitalizeFirstLetter(page)).classList.add('active');
+
+            // Show the corresponding section
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');  // Hide all sections
+            const section = document.querySelector('.' + page);
+            if (section) {
+                section.style.display = 'block';
+            }
+
+            // Update the iframe content source dynamically based on the selected page
+            const iframe = document.getElementById('iframeContent');
+            let pageUrl = '';
+
+            switch (page) {
+                case 'mood':
+                    pageUrl = 'http://localhost:8502';
+                    break;
+                case 'time':
+                    pageUrl = 'http://localhost:8506';
+                    break;
+                case 'thaat':
+                    pageUrl = 'http://localhost:8505';
+                    break;
+                case 'family':
+                    pageUrl = 'http://localhost:8504';
+                    break;
+                case 'name':
+                    pageUrl = 'http://localhost:8503';
+                    break;
+                case 'general':
+                    pageUrl = 'http://localhost:8501';
+                    break;
+                default:
+                    pageUrl = 'https://example.com/general'; // Default
+            }
+
+            iframe.src = pageUrl;
+        }
+
+        // Function to capitalize the first letter of a string
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        // Set default page content
+        changePage('general');
+    </script>
+
+</body>
+</html>
