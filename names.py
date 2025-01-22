@@ -5,7 +5,7 @@ import google.generativeai as genai
 from openpyxl import load_workbook
 
 # Set up Google AI API key
-os.environ["AI_API_KEY"] = "AIzaSyBmUqRqqo3qh3hP3R7Syu8jszN1ObarDzA"  # Replace with your actual API key
+os.environ["AI_API_KEY"] = ""  # Replace with your actual API key
 genai.configure(api_key=os.environ["AI_API_KEY"])
 
 # Create the model configuration
